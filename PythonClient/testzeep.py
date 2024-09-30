@@ -4,8 +4,8 @@ from zeep.transports import Transport
 
 ##wsdl = 'http://datex.vegagerdin.is/situationpublication3_1/SituationService?wsdl'
 ## To call external URL the port visiabillity has to be public
-wsdl ='https://scaling-spoon-jgjx7w6jrj92q45j-5001.app.github.dev/SituationService'
-##wsdl ='https://localhost:5001/SituationService'
+## wsdl ='https://scaling-spoon-jgjx7w6jrj92q45j-5001.app.github.dev/SituationService'
+wsdl ='https://localhost:5001/SituationService'
 
 # Create a session and disable SSL verification
 session = Session()
