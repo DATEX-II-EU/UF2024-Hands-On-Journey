@@ -1,0 +1,25 @@
+{
+  "providerId": "Microsoft.Tools.ServiceModel.Svcutil",
+  "version": "2.1.0",
+  "options": {
+    "inputs": [
+      "../../../Schema/DATEXII_3_Common.xsd",
+      "../../../Schema/DATEXII_3_D2Payload.xsd",
+      "../../../Schema/DATEXII_3_ExchangeInformation.xsd",
+      "../../../Schema/DATEXII_3_LocationReferencing.xsd",
+      "../../../Schema/DATEXII_3_MessageContainer.xsd",
+      "../../../Schema/DATEXII_3_RoadTrafficData.xsd",
+      "../../../Schema/DATEXII_3_Situation.xsd",
+      "../../../Schema/SnapshotPull.wsdl"
+    ],
+    "namespaceMappings": [
+      "*, DemoSoapServer"
+    ],
+    "noStandardLibrary": true,
+    "outputFile": "SnapshotPullSvc.cs",
+    "serializerMode": "XmlSerializer",
+    "sync": true,
+    "targetFramework": "net6.0",
+    "typeReuseMode": "All"
+  }
+}

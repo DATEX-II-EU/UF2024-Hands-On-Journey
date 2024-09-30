@@ -1,5 +1,4 @@
 ﻿using DemoSoapServer.Data;
-using DatexII;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;

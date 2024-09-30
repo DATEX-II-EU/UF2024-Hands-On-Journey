@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using DatexII;
+using DemoSoapServer;
 using DemoSoapServer.Controllers;
 
 namespace DemoSoapServer
@@ -33,7 +33,7 @@ namespace DemoSoapServer
                 .AddXmlSerializerFormatters(); //Added to support XMLSerialization
 
             //Add/register SituationPublicationService to IOC container
-            services.AddScoped<DatexII.snapshotPullInterface, SituationPublicationService>();
+            services.AddScoped<DemoSoapServer.snapshotPullInterface, SituationPublicationService>();
             services.AddScoped<Data.IDataManager, Data.DataManager>();
 
             services.AddSoapCore();
@@ -60,7 +60,7 @@ namespace DemoSoapServer
                 TextEncoding = new System.Text.UTF8Encoding(false) //parameter no byte order mark, for compatibillity
             };
           
-            app.UseSoapEndpoint<DatexII.snapshotPullInterface>("/SituationService", new SoapEncoderOptions(), SoapSerializer.XmlSerializer, false, null, settings);
+            app.UseSoapEndpoint<DemoSoapServer.snapshotPullInterface>("/SituationService", new SoapEncoderOptions(), SoapSerializer.XmlSerializer, false, null, settings);
             #endregion
 
             app.UseHttpsRedirection();

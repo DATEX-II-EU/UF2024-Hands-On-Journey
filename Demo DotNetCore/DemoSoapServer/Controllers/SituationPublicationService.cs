@@ -1,12 +1,12 @@
-﻿using DatexII;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DemoSoapServer.Data;
+using DemoSoapServer;
 namespace DemoSoapServer.Controllers
 {
-    public class SituationPublicationService : DatexII.snapshotPullInterface
+    public class SituationPublicationService : DemoSoapServer.snapshotPullInterface
     {
         private readonly IDataManager _dataManager;
         public SituationPublicationService(IDataManager dataManager)
