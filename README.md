@@ -1,6 +1,6 @@
 # User Forum 2024 Bucharest
 
-Building the Future: A Hands-On Journey Through DATEX II
+## Building the Future: A Hands-On Journey Through DATEX II
 
 In this workshop, we will engage in hands-on coding to build a simple DATEX II server and client.
 
