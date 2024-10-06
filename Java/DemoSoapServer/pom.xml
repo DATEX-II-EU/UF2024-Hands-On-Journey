@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>datex-demo</artifactId>
+    <version>1.0.0</version>
+    <name>datex-demo</name>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.4</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>xjc</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.patrodyne.jvnet</groupId>
+                        <artifactId>hisrc-basicjaxb-plugins</artifactId>
+                        <version>2.2.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.patrodyne.jvnet</groupId>
+                        <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
+                        <version>2.1.0</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <sourceType>wsdl</sourceType>
+                    <xjbSources>
+                        <xjbSource>src/main/resources/global.xjb</xjbSource>
+                    </xjbSources>
+                    <sources>
+                        <source>src/main/resources/SnapshotPull.wsdl</source>
+                    </sources>
+                    <outputDirectory>${basedir}/target/generated-sources/src/main/java</outputDirectory>
+                    <clearOutputDir>false</clearOutputDir>
+                    <arguments>-Xannotate</arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
