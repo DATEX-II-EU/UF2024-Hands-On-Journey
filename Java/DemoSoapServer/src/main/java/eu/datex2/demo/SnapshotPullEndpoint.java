@@ -1,7 +1,5 @@
 package eu.datex2.demo;
 
-import static eu.datex2.demo.Constants.NAMESPACE;
-
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
@@ -18,7 +16,7 @@ public class SnapshotPullEndpoint {
     }
 
     @ResponsePayload
-    @PayloadRoot(namespace = NAMESPACE, localPart = "pullSnapshotData")
+    @PayloadRoot(namespace = "http://datex2.eu/wsdl/snapshotPull/2020", localPart = "pullSnapshotData")
     public JAXBElement<MessageContainer> handlePullData() {
         return situationService.getJAXBMessageContainer();
     }
