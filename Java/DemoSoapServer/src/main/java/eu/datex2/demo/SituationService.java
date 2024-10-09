@@ -99,6 +99,7 @@ public class SituationService {
         MessageContainer messageContainer = new MessageContainer();
         messageContainer.setModelBaseVersion("3");
         messageContainer.setProfileName("SituationPublication Profile");
+        messageContainer.setExchangeInformation(getExchangeInformation());
         messageContainer.getPayload().add(getPublication());
         return objectFactory.createPullSnapshotDataOutput(messageContainer);
     }
