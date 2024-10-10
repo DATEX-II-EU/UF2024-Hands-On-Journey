@@ -13,7 +13,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/Demo DotNetCore/DemoSoapServer/bin/Debug/net6.0/DemoSoapServer.dll",
+            "program": "${workspaceFolder}/Demo DotNetCore/DemoSoapServer/bin/Debug/net8.0/DemoSoapServer.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Demo DotNetCore/DemoSoapServer",
             "stopAtEntry": false,

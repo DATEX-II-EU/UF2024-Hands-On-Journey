@@ -1,4 +1,5 @@
 @LOCALBASEURL = https://localhost:5001
+@EXTERNALURL = https://upgraded-spork-gv5jgppgqrhwwpq-5001.app.github.dev
 
 ## Call local http GET server
 GET {{LOCALBASEURL}}
@@ -6,12 +7,18 @@ User-Agent: rest-client
 Content-Type: application/xml
 
 ###
-#Get WSDL file
+## Call external http GET server
+GET {{EXTERNALURL}}
+User-Agent: rest-client
+Content-Type: application/xml
+
+###
+#Get WSDL file locally
 GET {{LOCALBASEURL}}/SituationService
 User-Agent: rest-client
 
 ###
-#Call WS snapshotpull
+#Call WS snapshotpull locally
 POST {{LOCALBASEURL}}/SituationService
 Content-Type: text/xml;charset=UTF-8
 SOAPAction: "http://datex2.eu/wsdl/snapshotPull/2020/pullData"
