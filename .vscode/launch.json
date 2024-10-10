@@ -9,19 +9,14 @@
             "console": "integratedTerminal"
         },
         {
-            // Use IntelliSense to find out which attributes exist for C# debugging
-            // Use hover for the description of the existing attributes
-            // For further information visit https://github.com/dotnet/vscode-csharp/blob/main/debugger-launchjson.md.
             "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/Demo DotNetCore/DemoSoapServer/bin/Debug/net6.0/DemoSoapServer.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Demo DotNetCore/DemoSoapServer",
             "stopAtEntry": false,
-            // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {
                 "action": "openExternally",
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
@@ -32,6 +27,13 @@
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
             }
+        },
+        {
+            "type": "java",
+            "name": "Java application",
+            "request": "launch",
+            "mainClass": "eu.datex2.demo.Application",
+            "projectName": "datex-demo"
         }
     ]
 }

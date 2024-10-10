@@ -1,0 +1,7 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:pull="http://datex2.eu/wsdl/snapshotPull/2020">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <pull:pullSnapshotData></pull:pullSnapshotData>
+    </soapenv:Body>
+</soapenv:Envelope>
