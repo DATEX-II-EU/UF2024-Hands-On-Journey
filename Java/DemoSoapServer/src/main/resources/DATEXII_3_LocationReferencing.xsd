@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:loc="http://datex2.eu/schema/3/locationReferencing" version="3.5" targetNamespace="http://datex2.eu/schema/3/locationReferencing" xmlns:com="http://datex2.eu/schema/3/common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://datex2.eu/schema/3/common" schemaLocation="DATEXII_3_Common.xsd" />
+  <xs:complexType name="_AltitudeAccuracyEnum">
+    <xs:simpleContent>
+      <xs:extension base="loc:AltitudeAccuracyEnum">
+        <xs:attribute name="_extendedValue" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_HeightTypeEnum">
+    <xs:simpleContent>
+      <xs:extension base="loc:HeightTypeEnum">
+        <xs:attribute name="_extendedValue" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_PositionConfidenceCodedErrorEnum">
+    <xs:simpleContent>
+      <xs:extension base="loc:PositionConfidenceCodedErrorEnum">
+        <xs:attribute name="_extendedValue" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="_PredefinedLocationVersionedReference">
+    <xs:complexContent>
+      <xs:extension base="com:VersionedReference">
+        <xs:attribute name="targetClass" type="xs:string" use="required" fixed="loc:PredefinedLocation" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="AltitudeAccuracyEnum">
+    <xs:annotation>
+      <xs:documentation>Coded level of vertical accuracy</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="equalToOrLessThan1Centimetre">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 1 centimetre</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="equalToOrLessThan2Centimetres">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 2 centimetres</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="equalToOrLessThan5Centimetres">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 5 centimetres</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="equalToOrLessThan10Centimetres">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 10 centimetres</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="equalToOrLessThan20Centimetres">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 20 centimetres</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="equalToOrLessThan50Centimetres">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 50 centimetres</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="equalToOrLessThan1Metre">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 1 metre</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="equalToOrLessThan2Metres">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 2 metres</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="equalToOrLessThan5Metres">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 5 metres</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="equalToOrLessThan10Metres">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 10 metres</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="equalToOrLessThan20Metres">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 20 metres</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="equalToOrLessThan50Metres">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 50 metres</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="equalToOrLessThan100Metres">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 100 metres</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="equalToOrLessThan200Metres">
+        <xs:annotation>
+          <xs:documentation>Indicates if the altitude accuracy is equal to or less than 200 metres</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="_extended" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AltitudeConfidence">
+    <xs:annotation>
+      <xs:documentation>Evaluation of the altitude confidence assessed according to ETSI ISO 102894-2</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="altitudeAccuracyCodedValue" type="loc:_AltitudeAccuracyEnum" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Absolute accuracy of reported value of a geographical point for a confidence level expressed by a coded scale.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="altitudeAccuracyCodedError" type="loc:_PositionConfidenceCodedErrorEnum" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Error code in case the altitude confidence is out of range or cannot be determined</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="_altitudeConfidenceExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HeightCoordinate">
+    <xs:annotation>
+      <xs:documentation>Third coordinate for points defined geodetically</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="heightValue" type="com:MetresAsFloat" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Value in metres for the height measured vertically at to the planar coordinates the point corresponding.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="heightType" type="loc:_HeightTypeEnum" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Type of measured height.When it is omitted it is supposed to be the ellipsoidal height.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="altitudeConfidence" type="loc:AltitudeConfidence" minOccurs="0" />
+      <xs:element name="verticalPositionAccuracy" type="loc:PositionAccuracy" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Defines the vertical position accuracy according to EN16803-1</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="_heightCoordinateExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="HeightTypeEnum">
+    <xs:annotation>
+      <xs:documentation>Coded value for type of height</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ellipsoidalHeight">
+        <xs:annotation>
+          <xs:documentation>Value measured vertically above the reference ellipsoid</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="gravityRelatedHeight">
+        <xs:annotation>
+          <xs:documentation>Height type corresponding a value measured along direction of gravity above the reference geoid i.e. equipotential surface of the Earth's gravity field which globally approximates mean sea level.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="relativeHeight">
+        <xs:annotation>
+          <xs:documentation>Height type corresponding to value masured vertically above the ground level at this point.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="_extended" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Location" abstract="true">
+    <xs:annotation>
+      <xs:documentation>The specification of a location either on a network (as a point or a linear location) or as an area. This may be provided in one or more referencing systems.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="loc:LocationReference">
+        <xs:sequence>
+          <xs:element name="coordinatesForDisplay" type="loc:PointCoordinates" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Coordinates that may be used by clients for visual display on user interfaces.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="_locationExtension" type="com:_ExtensionType" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="LocationByReference">
+    <xs:annotation>
+      <xs:documentation>A location defined by reference to a predefined location.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="loc:Location">
+        <xs:sequence>
+          <xs:element name="predefinedLocationReference" type="loc:_PredefinedLocationVersionedReference" minOccurs="1" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>A reference to a versioned predefined location.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="_locationByReferenceExtension" type="com:_ExtensionType" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="LocationReference" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Represents one or more physically separate locations. Multiple locations may be related, as in an itinerary or route, or may be unrelated. One LocationReference should not use multiple Location objects to represent the same physical location.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="_locationReferenceExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NetworkLocation" abstract="true">
+    <xs:annotation>
+      <xs:documentation>The specification of a location on a network (as a point or a linear location).</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="loc:Location">
+        <xs:sequence>
+          <xs:element name="supplementaryPositionalDescription" type="loc:SupplementaryPositionalDescription" minOccurs="0" />
+          <xs:element name="_networkLocationExtension" type="com:_ExtensionType" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PointByCoordinates">
+    <xs:annotation>
+      <xs:documentation>A single point defined only by a coordinate set with an optional bearing direction.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="bearing" type="com:AngleInDegrees" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>A bearing at the point measured in degrees (0 - 359). Unless otherwise specified the reference direction corresponding to 0 degrees is North. Values increase in the clockwise direction.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pointCoordinates" type="loc:PointCoordinates" />
+      <xs:element name="_pointByCoordinatesExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PointCoordinates">
+    <xs:annotation>
+      <xs:documentation>A pair of planar coordinates defining the geodetic position of a single point using the European Terrestrial Reference System 1989 (ETRS89).</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="latitude" type="com:Float" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Latitude in decimal degrees using the European Terrestrial Reference System 1989 (ETRS89).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="longitude" type="com:Float" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Longitude in decimal degrees using the European Terrestrial Reference System 1989 (ETRS89).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="heightCoordinate" type="loc:HeightCoordinate" minOccurs="0" maxOccurs="3" />
+      <xs:element name="positionConfidenceEllipse" type="loc:PositionConfidenceEllipse" minOccurs="0" />
+      <xs:element name="horizontalPositionAccuracy" type="loc:PositionAccuracy" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Defines the horizontal position accuracy according EN 16803-1</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="_pointCoordinatesExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PointLocation">
+    <xs:annotation>
+      <xs:documentation>Location representing a single geospatial point.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="loc:NetworkLocation">
+        <xs:sequence>
+          <xs:element name="pointByCoordinates" type="loc:PointByCoordinates" minOccurs="0" />
+          <xs:element name="_pointLocationExtension" type="com:_ExtensionType" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PositionAccuracy">
+    <xs:annotation>
+      <xs:documentation>Horizontal position accuracy parameters defined according to EN 16803-1</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="accuracyPercentile50" type="com:MetresAsFloat" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Accuracy defined by the 50th percentile of the cumulative distribution of position errors.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="accuracyPercentile75" type="com:MetresAsFloat" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Accuracy defined by the 75th percentile of the cumulative distribution of position errors</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="accuracyPercentile95" type="com:MetresAsFloat" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Accuracy defined by the 95th percentile of the cumulative distribution of position errors</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="_positionAccuracyExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PositionConfidenceCodedErrorEnum">
+    <xs:annotation>
+      <xs:documentation>Error code for horizontal or vertical position confidence</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="outOfRange">
+        <xs:annotation>
+          <xs:documentation>Indicates the accuracy is out of range, i.e. greater than 4 093 cm for horizontal position.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="unavailable">
+        <xs:annotation>
+          <xs:documentation>Indicates the accuracy information is unavailable.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="_extended" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PositionConfidenceEllipse">
+    <xs:annotation>
+      <xs:documentation>Confidence ellipse position defined in a shape of ellipse with a predefined confidence level (e.g. 95 %). The centre of the ellipse shape corresponds to the reference position point for which the position accuracy is evaluated.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="semiMajorAxisLength" type="com:MetresAsFloat" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Half of length of the major axis, i.e. distance between the centre point and major axis point of the position accuracy ellipse.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="semiMajorAxisLengthCodedError" type="loc:_PositionConfidenceCodedErrorEnum" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Provides a coded error in case the semi-major axis length is not defined</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="semiMinorAxisLength" type="com:MetresAsFloat" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Half of length of the minor axis, i.e. distance between the centre point and minor axis point of the position accuracy ellipse</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="semiMinorAxisLengthCodedError" type="loc:_PositionConfidenceCodedErrorEnum" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Provides a coded error in case the semi-minor axis length is not defined</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="semiMajorAxisOrientation" type="com:AngleInDegrees" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Orientation direction of the ellipse major axis of the position accuracy ellipse with regards to the geographic north.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="semiMajorAxisOrientationError" type="com:Boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Indicates whether the ellipse orientation is unavailable (True) or not (False)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="_positionConfidenceEllipseExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RoadInformation">
+    <xs:annotation>
+      <xs:documentation>Information on a road</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="roadName" type="com:String" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The name of the road</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="roadNumber" type="com:String" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The road number designated by the road authority</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="_roadInformationExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SupplementaryPositionalDescription">
+    <xs:annotation>
+      <xs:documentation>A collection of supplementary positional information which improves the precision of the location.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="locationDescription" type="com:MultilingualString" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Supplementary human-readable description of the location</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="roadInformation" type="loc:RoadInformation" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Information on a set of one or more roads. The location could correspond to a part of the road identified, the whole stretch of road identified, or a combination of multiple road sections.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="_supplementaryPositionalDescriptionExtension" type="com:_ExtensionType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
